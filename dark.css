@@ -1,0 +1,83 @@
+:root {
+  --ink:#f3f6fc; --muted:#a8b6cc; --accent:#6aafff; --line:#2b3b54;
+  --text-color:#f3f6fc; --background-color:#101827; --secondary-background-color:#18243a; --primary-color:#6aafff;
+  --st-text-color:#f3f6fc; --st-background-color:#101827; --st-secondary-background-color:#18243a; --st-primary-color:#6aafff;
+}
+html,body,.stApp,[data-testid="stAppViewContainer"],[data-testid="stMain"] { background:#101827; color:#f3f6fc; color-scheme:dark; }
+[data-testid="stHeader"] { background:#101827; }
+[data-testid="stSidebar"],[data-testid="stSidebarContent"] { background:#141f32; color:#f3f6fc; border-color:#2b3b54; }
+.stApp :is(h1,h2,h3,h4,h5,h6,p,label,summary),[data-testid="stMarkdownContainer"],[data-testid="stWidgetLabel"] { color:#edf3ff !important; }
+[data-testid="stCaptionContainer"],[data-testid="stCaptionContainer"] * { color:#bccbe0 !important; opacity:1 !important; }
+.workspace-title,.player-card,.player-title { color:#f5f8ff; }
+.workspace-kicker,.player-meta { color:#b0bfd5; }
+.workspace-mark { background:#213f68; color:white; }
+.player-club,.stat-line { color:#cad8ec; }
+.stat-line b { color:#f5f8ff; }
+.stat-line small { color:#b7cbe8; }
+[class*="st-key-shortlist_card_"] { background:#18243a; border-color:#30415d; box-shadow:0 5px 16px rgba(0,0,0,.12); }
+[data-testid="stVerticalBlockBorderWrapper"],[data-testid="stVerticalBlockBorderWrapper"]>div { border-color:#30415d !important; }
+.rank-tag { background:#253650; color:#ccdcf2; }
+.score-badge { background:#223f63; color:#9bcdff; }
+.player-stats { border-color:#30415d; }
+.stat-track { background:#2a3952; --percentile-tick:#101827; }
+.stat-fill.strong { background:#79baff; }
+.stat-fill.steady { background:#4e96e7; }
+.stat-fill.muted { background:#416d9f; }
+[data-testid="stMetric"] { background:#18243a; border-color:#30415d; color:#f5f8ff; }
+[data-testid="stMetricValue"],[data-testid="stMetricValue"]>div { color:#f5f8ff; }
+[data-baseweb="tab"] { color:#becce2 !important; }
+[data-baseweb="tab"][aria-selected="true"] { color:#8ac3ff !important; }
+[data-baseweb="tab-highlight"] { background:#6aafff !important; }
+[data-baseweb="tab-list"] { border-color:#30415d; }
+.stApp button { color:#eef4ff !important; border-color:#354968 !important; }
+[data-testid="stBaseButton-secondary"],[data-testid="stBaseButton-tertiary"],[data-testid="stBaseButton-pills"],[data-testid="stBaseButton-segmented_control"] { background:#1c2b43; }
+.stApp button[aria-pressed="true"] { background:#254f7e !important; color:#fff !important; }
+.stApp [data-baseweb="input"],.stApp [data-baseweb="input"]>div,.stApp [data-baseweb="base-input"],.stApp [data-baseweb="select"]>div,
+.stApp input,.stApp textarea { background:#1b2940 !important; color:#f3f7ff !important; border-color:#354968 !important; }
+.stApp input::placeholder,.stApp textarea::placeholder { color:#a6b7d0 !important; }
+.stApp [data-baseweb="tag"] { background:#264a74 !important; color:#f5f8ff !important; }
+[data-baseweb="popover"]>div,[role="listbox"],[role="listbox"] li { background:#1b2940 !important; color:#f3f7ff !important; }
+[role="option"][aria-selected="true"] { background:#2b4c74 !important; }
+.stApp [data-testid="stExpander"] details { border-color:#354968; background:transparent; }
+.stApp a { color:#91c6ff; }
+.stApp code,.stApp pre { background:#1b2940; color:#e5efff; }
+
+/* Streamlit's React Aria controls need their own surfaces, in addition to
+   the BaseWeb controls supported above. Keep selectors tied to widget roles. */
+[data-testid="stButtonGroup"] [data-variant] { background:#1c2b43 !important; color:#edf3ff !important; border-color:#49617f !important; }
+[data-testid="stButtonGroup"] [data-variant][data-selected],
+[data-testid="stButtonGroup"] [data-variant][aria-selected="true"] { background:#285582 !important; color:#fff !important; }
+[data-testid="stButtonGroup"] [data-variant]:hover { background:#2b4160 !important; }
+[data-testid="stSelectbox"] div:has(> input[role="combobox"]),
+[data-testid="stMultiSelect"] div:has(> [data-testid="stMultiSelectTagsContainer"]),
+[data-testid="stMultiSelectTagsContainer"] { background:#1b2940 !important; color:#f3f7ff !important; border-color:#49617f !important; }
+:is([data-testid="stSelectbox"],[data-testid="stMultiSelect"]) button { background:#1b2940 !important; color:#c5dfff !important; }
+[data-testid="stMultiSelect"] [data-tag] { background:#264a74 !important; color:#f5f8ff !important; }
+[data-testid="stMultiSelect"] [data-tag] button { background:transparent !important; color:#f5f8ff !important; }
+:is([data-testid="stSelectboxVirtualDropdown"],[data-testid="stMultiSelectDropdown"]) { background:#1b2940 !important; color:#f3f7ff !important; border:1px solid #49617f; }
+:is([data-testid="stSelectboxVirtualDropdown"],[data-testid="stMultiSelectDropdown"]) [role="option"] { background:#1b2940 !important; color:#f3f7ff !important; }
+:is([data-testid="stSelectboxVirtualDropdown"],[data-testid="stMultiSelectDropdown"]) [role="option"]:is([data-focused="true"],[aria-selected="true"]) { background:#2b4c74 !important; }
+.stApp button svg { color:inherit; }
+[data-testid="stExpander"] summary { background:#1b2940 !important; color:#edf3ff !important; }
+[data-testid="stExpander"] summary:hover { background:#263b58 !important; }
+/* Native dataframes draw headers, cell backgrounds and scroll areas on canvas.
+   Transform the whole grid so sorting, resizing and search remain available.
+   Keep Python cell backgrounds unstyled to avoid inverting them twice. */
+[data-testid="stDataFrame"] { filter:invert(1) hue-rotate(180deg); border-radius:8px; }
+
+/* Number fields include a separate native control surface beside the input. */
+[data-testid="stNumberInputContainer"] { background:#1b2940 !important; color:#f3f7ff !important; border-color:#49617f !important; }
+[data-testid="stNumberInput"] button { background:#223651 !important; color:#d8eaff !important; border-color:#49617f !important; }
+[data-testid="stNumberInput"] button:hover:not(:disabled) { background:#315579 !important; color:#fff !important; }
+[data-testid="stNumberInput"] button:disabled { background:#1b2940 !important; color:#8194ae !important; opacity:1 !important; }
+[data-testid="stNumberInput"] button :is(svg,span) { color:inherit !important; fill:currentColor; }
+[data-testid="stTooltipIcon"],[data-testid="stTooltipIcon"] svg,
+[data-testid="stWidgetLabel"] [data-testid="stIconMaterial"] { color:#b9d8ff !important; }
+.stApp button:focus-visible,[data-testid="stButtonGroup"] [data-variant]:focus-visible { outline:2px solid #8ac3ff !important; outline-offset:2px; }
+
+/* Notifications render in a portal outside the main .stApp surface. */
+[data-testid="stToast"] { background:#1b2940 !important; color:#edf3ff !important; border:1px solid #49617f !important; box-shadow:0 6px 24px rgba(0,0,0,.3); }
+[data-testid="stToastText"],[data-testid="stToastText"] * { color:#edf3ff !important; }
+[data-testid="stToast"] button { background:transparent !important; color:#c5dfff !important; }
+[data-testid="stToast"] button:hover { background:#2b4160 !important; }
+[data-testid="stToast"] button :is(svg,span) { color:inherit !important; }
